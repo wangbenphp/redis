@@ -1,8 +1,8 @@
 <?php
 
-/*
+/**
  * Redis操作类
- * author:wangben
+ * @author:wangben
  * date:2018-04-20
  */
 class RedisHandle
@@ -10,7 +10,7 @@ class RedisHandle
 	private static $redis    = null;
 	private static $instance = [];
 
-    /*
+    /**
      * 初始化操作
      */
 	public function __construct($config = [])
@@ -58,7 +58,7 @@ class RedisHandle
 		return self::$redis;
 	}
 
-    /*
+    /**
      * 获得Redis对象
      */
 	public static function getInstance($config = 'REDIS_DEFAULT')
@@ -73,7 +73,7 @@ class RedisHandle
 		return self::$instance[$config_id];
 	}
 
-    /*
+    /**
      * 普通调用Redis操作
      */
 	public function __call($method, $param)
@@ -81,7 +81,7 @@ class RedisHandle
 		return self::call($method, $param);
 	}
 
-    /*
+    /**
      * 静态调用Redis操作
      */
 	public static function __callStatic($method, $param)
@@ -89,7 +89,7 @@ class RedisHandle
 		return self::call($method, $param);
 	}
 
-    /*
+    /**
      * 忽略过滤Redis操作方法
      */
 	private static function ignoreMethod($method)
@@ -107,7 +107,7 @@ class RedisHandle
 		return false;
 	}
 
-    /*
+    /**
      * Redis透明调用
      */
 	private static function call($method, $param)
