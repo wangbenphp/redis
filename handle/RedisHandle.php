@@ -38,7 +38,7 @@ class RedisHandle
 				self::$redis->auth($auth);
 			}
 
-			if ($database && is_int($database) && $database <= 15 && $database >= 0) {
+			if ($database && $database <= 15 && $database >= 0) {
 				self::$redis->select($database);
 			}
 
